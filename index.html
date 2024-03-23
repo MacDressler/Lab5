@@ -14,7 +14,7 @@
     </div>
     <div>
         <label for="port">Port:</label>
-        <input type="text" id="port" value="8083">
+        <input type="text" id="port" value="8883">
     </div>
     <div>
         <button id="start" onclick="startConnection()">Start</button>
@@ -48,8 +48,8 @@
         function startConnection() {
             var broker = $("#broker").val();
             var port = $("#port").val();
-            var wsURL = 'wss://' + broker + ':' + port + '/mqtt';
-            var client = new Paho.MQTT.Client(wsURL, "mqttx_82a1a4de");
+            var wsURL = 'ws://' + broker + ':' + port + '/mqtt';
+            var client = new Paho.MQTT.Client(wsURL, "mqttx_6acf9d85");
             
             console.log('attempting')
             client.onConnectionLost = function (responseObject) {
@@ -81,8 +81,6 @@
                     $("#status").text("Connection failed. Retrying...");
                     setTimeout(function () { startConnection() }, 5000);
                 }
-                ,userName: "mac",
-                password: "mac"
             });
         }
 
