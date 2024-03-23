@@ -48,7 +48,7 @@
         function startConnection() {
             var broker = $("#broker").val();
             var port = $("#port").val();
-            var wsURL = 'ws://' + broker + ':' + port + '/mqtt';
+            var wsURL = 'wss://' + broker + ':' + port + '/mqtt';
             var client = new Paho.MQTT.Client(wsURL, "mqttx_82a1a4de");
             
             console.log('attempting')
